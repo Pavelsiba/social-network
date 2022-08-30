@@ -1,0 +1,37 @@
+.nav {
+  grid-area: n;
+  background: rgb(35, 151, 205);
+  padding: 20px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a.active {
+  color: gold;
+}
+
+.friends h2 {
+  padding-top: 100px;
+  
+}
+
+.friends {
+  font-size: medium;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.friendsBlock {
+  display: flex;
+  justify-content:space-between;
+}
+
+.friend {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: yellow;
+}

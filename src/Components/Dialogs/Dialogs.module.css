@@ -1,0 +1,58 @@
+
+.dialogs {
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-right: 1px solid black;
+    
+}
+
+.dialogArea {
+    display: grid;
+    grid-template-columns: 2fr 5fr 5fr;
+}
+
+h2 {
+    text-decoration: underline;
+    padding-bottom: 10px;
+}
+
+a {
+    color: black;
+    padding-left: 10px;
+    display: block;
+}
+
+a:hover {
+    color: white;
+}
+
+.dialog {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    
+}
+
+.dialogs .active {
+    color: rgb(219, 92, 14);
+}
+
+.messages {
+    padding-left: 20px;
+    color: rgb(40, 21, 164);
+}
+
+.dialog img {
+    width: 50px;
+    border-radius: 50%;
+    display: block;
+}
+
+.answersArea {
+    border-left: 1px solid black;
+    padding-left: 20px;
+    color: rgb(180, 74, 74);
+
+}
