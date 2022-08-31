@@ -62,7 +62,5 @@ export default compose (
     setCurrentPage,
     getUsers,
   }),
-  withAuthRedirect
+  /* withAuthRedirect */
 )(UsersContainer);
-
-/* const hh */
