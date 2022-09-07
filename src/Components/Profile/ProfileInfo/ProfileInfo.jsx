@@ -3,8 +3,8 @@ import ProfileStatus from './ProfileStatus'
 import s from "./ProfileInfo.module.css";
 
 
-const ProfileInfo = ({profile}) => {
-  if (!profile) {
+const ProfileInfo = (props) => {
+  if (!props.profile) {
     return <Preloader />;
   }
 
@@ -15,13 +15,13 @@ const ProfileInfo = ({profile}) => {
         alt="аватарка"
       /> */}
       <div className={s.descriptionBlock}>
-        <img src={profile.photos.large} alt="аватарка" />
+        <img src={props.profile.photos.large} alt="аватарка" />
       </div>
-      <ProfileStatus status={'Здорова дружище. Как дела?'} />
-      <div>{profile.fullName}</div>
-      <div>{profile.aboutMe}</div>
-      <div>Мой стек: {profile.lookingForAJobDescription}</div>
-      <div>{profile.lookingForAJob ? "Ищу работу" : "Не ищу работу"}</div>
+      <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+      <div>{props.profile.fullName}</div>
+      <div>{props.profile.aboutMe}</div>
+      <div>Мой стек: {props.profile.lookingForAJobDescription}</div>
+      <div>{props.profile.lookingForAJob ? "Ищу работу" : "Не ищу работу"}</div>
     </div>
   );
 };

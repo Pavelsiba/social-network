@@ -22,30 +22,4 @@ let mapDispatchToProps = (dispatch) => {
 };
 
 export default compose (
-  connect (mapStateToProps, mapDispatchToProps)/* , withAuthRedirect */) (Dialogs);
-
-/* const DialogsContainer = () => {
-  return ( 
-  <StoreContext.Consumer>
-      {(store) => {
-        let state = store.getState().dialogsReducer.dialogPage;
-
-        let onSendMessageClick = () => {
-          store.dispatch(sendMessageCreater());
-        };
-
-        let onNewMessageChange = (body) => {
-          store.dispatch(updateNewMessageBodyCreater(body));
-        };
-
-        return (
-          <Dialogs
-            updateNewMessageBody={onNewMessageChange}
-            sendMessage={onSendMessageClick}
-            dialogPage={state}
-          />
-        );
-      }}
-    </StoreContext.Consumer>
-  );
-}; */
+  connect (mapStateToProps, mapDispatchToProps), withAuthRedirect) (Dialogs);
