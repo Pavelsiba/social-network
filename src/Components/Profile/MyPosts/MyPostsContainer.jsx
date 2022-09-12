@@ -33,6 +33,10 @@ let mapDispatchToProps = (dispatch) =>{
   }
 }
 
+/* let addPost = (text) => {dispatch(addPostActionCreater(text))}  */
+
 const MyPostsContainer = connect (mapStateToProps, mapDispatchToProps) (MyPosts)
 
 export default MyPostsContainer;
+
+
