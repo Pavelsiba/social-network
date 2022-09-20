@@ -1,14 +1,15 @@
-import { usersAPI } from "./../api/api";
+import { authAPI } from "./../api/api";
 
 const SET_USER_DATA = "SET_USER_DATA";
-const SET_EMAIL = "SET_EMAIL"
+/* const SET_EMAIL = "SET_EMAIL" */
 
 const initialState = {
   id: null,
   login: null,
   email: null,
+  password: null,
+  rememberMe: false,
   isAuth: false,
-  loginEmail: null
 };
 
 const authReducer = (state = initialState, action) => {
@@ -16,37 +17,43 @@ const authReducer = (state = initialState, action) => {
     case SET_USER_DATA:
       return {
         ...state,
-        ...action.data,
-        isAuth: true,
-      };
-    case SET_EMAIL:
-      return {
-        ...state,
-        loginEmail:  action.email,
-        isAuth: true,
+        ...action.payload,
       };
     default:
       return state;
   }
 };
 
-export const setAuthUserData = (id, login, email) => ({
+export const setAuthUserData = (id, login, email, isAuth) => ({
   type: SET_USER_DATA,
-  data: { id, login, email },
+  payload: { id, login, email, isAuth },
 });
 
-export const setEmail = (email) => ({
-  type: SET_EMAIL,
-  email
-});
-
-export const authUser = () => (dispatch) => {
-    usersAPI.authUser().then((response) => {
+export const getAuthUserData = () => (dispatch) => {
+  authAPI.me().then((response) => {
       if (response.data.resultCode === 0) {
         let { id, login, email } = response.data.data;
-        dispatch(setAuthUserData(id, login, email));
+        dispatch(setAuthUserData(id, login, email, true));
       }
     });
   };
+
+export const login = (email, password, rememberMe) => (dispatch) => {
+  authAPI.login(email, password, rememberMe).then((response) => {
+      if (response.data.resultCode === 0) {
+        dispatch(getAuthUserData());
+      } 
+    });
+  };
+
+export const logout = () => (dispatch) => {
+  authAPI.logout().then((response) => {
+      if (response.data.resultCode === 0) {
+        dispatch(setAuthUserData(null, null, null, false ));
+      }
+    });
+  };
+
+
 
 export default authReducer;

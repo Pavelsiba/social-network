@@ -1,15 +1,32 @@
 
+button {
+    background-color: aliceblue;
+    font-size: large;
+    border-radius: 5px;
+    border: 2px solid rgb(214, 117, 43);
+    cursor: pointer;
+}
 
 .paginator {
     margin: 10px;
 }
 
 .pageNumber {
-    padding: 2px;
-    border: 1px solid grey;
+    background-color: aliceblue;
+    text-align: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    padding-left: 3px;
+    margin: 5px;
+    border: 2px solid rgb(111, 96, 222);
 }
 
 .pageNumber.selectedPage {
+    
+    cursor: pointer;
     font-weight: bold;
     border-color: black;
+    background-color: yellowgreen;
+    pointer-events: none;
 }

@@ -12,7 +12,7 @@ const initialState = {
   users: [],
   pageSize: 5,
   totalUsersCount: 0,
-  currentPage: 1,
+  page: 1,
   isFetching: false,
   followingInProgress: [],
 };
@@ -46,7 +46,7 @@ const usersReducer = (state = initialState, action) => {
     }
 
     case SET_CURRENT_PAGE: {
-      return { ...state, currentPage: action.currentPage };
+      return { ...state, page: action.page };
     }
 
     case TOTAL_USERS_COUNT: {
@@ -86,9 +86,9 @@ export const setUsers = (users) => ({
   users,
 });
 
-export const setCurrentPage = (currentPage) => ({
+export const setCurrentPage = (page) => ({
   type: SET_CURRENT_PAGE,
-  currentPage,
+  page,
 });
 
 export const setTotalUsersCount = (count) => ({
@@ -107,11 +107,11 @@ export const toggleFollowingProgress = (isFetching, userId) => ({
   userId,
 });
 
-export const getUsers = (currentPage, pageSize) => {
+export const requestUsers = (page, pageSize) => {
   return (dispatch) => {
-    dispatch(setToggleIsFetching(true));
-
-    usersAPI.getUsers(currentPage, pageSize).then((data) => {
+      dispatch(setToggleIsFetching(true));
+      dispatch(setCurrentPage(page))
+    usersAPI.getUsers(page, pageSize).then((data) => {
       dispatch(setToggleIsFetching(false));
       dispatch(setUsers(data.items));
       dispatch(setTotalUsersCount(data.totalCount));

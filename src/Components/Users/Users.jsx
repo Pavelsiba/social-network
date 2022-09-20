@@ -3,16 +3,18 @@ import Paginator from "../Common/Paginator/Paginator";
 import User from "./User";
 
 const Users = ({
-  currentPage,
+  page,
   totalUsersCount,
   pageSize,
   onPageChanged,
   users,
   ...props
 }) => {
+
+ 
   return <div>
       <Paginator
-        currentPage={currentPage}
+        currentPage={page}
         onPageChanged={onPageChanged}
         totalUsersCount={totalUsersCount}
         pageSize={pageSize}

@@ -10,31 +10,38 @@ import UsersContainer from "./Components/Users/UsersContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
 import Login from "./Components/Login/login";
+import { Component } from "react";
+import { getAuthUserData } from "./Redux/auth-reducer";
+import { connect } from "react-redux";
 /* import LoginContainer from "./Components/Login/LoginContainer"; */
 
+class App extends Component {
+  componentDidMount() {
+    this.props.getAuthUserData();
+  }
 
-const App = () => {
-
-  return (
-    <BrowserRouter>
-      <div className="app-wrapper">
-        <HeaderContainer />
-        <Nav />
-        <div className="app-wrapper-content">
-          <Routes>
-            <Route path="/Dialogs" element={<DialogsContainer />} />
-            <Route path="/Profile/:userId" element={<ProfileContainer />} />
-            <Route path="/Profile/" element={<ProfileContainer/>}/>
-            <Route path="/Users" element={<UsersContainer />} />
-            <Route path="/Music" element={<Music />} />
-            <Route path="/News" element={<News />} />
-            <Route path="/Login" element={<Login />} />
-            <Route path="/Settings" element={<Settings />} />
-          </Routes>
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="app-wrapper">
+          <HeaderContainer />
+          <Nav />
+          <div className="app-wrapper-content">
+            <Routes>
+              <Route path="/Dialogs" element={<DialogsContainer />} />
+              <Route path="/Profile/:userId" element={<ProfileContainer />} />
+              <Route path="/Profile/" element={<ProfileContainer />} />
+              <Route path="/Users" element={<UsersContainer />} />
+              <Route path="/Music" element={<Music />} />
+              <Route path="/News" element={<News />} />
+              <Route path="/Login" element={<Login />} />
+              <Route path="/Settings" element={<Settings />} />
+            </Routes>
+          </div>
         </div>
-      </div>
-    </BrowserRouter>
-  );
-};
+      </BrowserRouter>
+    );
+  }
+}
 
-export default App;
+export default connect(null, { getAuthUserData })(App);

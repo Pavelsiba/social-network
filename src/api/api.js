@@ -1,7 +1,5 @@
 import axios from "axios";
 
-
-
 const instance = axios.create({
   baseURL: "https://social-network.samuraijs.com/api/1.0/",
   withCredentials: true,
@@ -25,10 +23,6 @@ export const usersAPI = {
         /* .then(response => response.data) */
   },
 
-  authUser () {
-    return (instance.get(`auth/me`))
-  },
-
   userProfile (userId) {
     console.warn('Obsolete method. Please used profileAPI object')
     return profileAPI.userProfile(userId)
@@ -48,3 +42,17 @@ export const profileAPI = {
   updateStatus (status) {
     return (instance.put(`profile/status`, {status: status}))
 }}
+
+export const authAPI = {
+  me () {
+    return instance.get(`auth/me`)
+  },
+   
+  login (email, password, rememberMe=false) {
+    return instance.post(`auth/login`, {email, password, rememberMe})
+  },
+
+  logout () {
+    return instance.delete(`auth/login`)
+  }
+}

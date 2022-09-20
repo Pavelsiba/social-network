@@ -1,4 +1,4 @@
-const UPDATE_NEW_MESSAGE_BODY = "UPDATE_NEW_MESSAGE_BODY";
+
 const SEND_MESSAGE = "SEND_MESSAGE";
 
 const initialState = {
@@ -26,20 +26,15 @@ const initialState = {
     { id: 5, answer: "Изучаю реакт" },
     { id: 6, answer: "Красаучик" },
   ],
-
-  newMessageBody: "",
 };
 
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case UPDATE_NEW_MESSAGE_BODY:
-      return { ...state, newMessageBody: action.body };
-
+ 
     case SEND_MESSAGE:
-      let body = state.newMessageBody;
       return {
         ...state,
-        messagesData: [...state.messagesData, { id: 6, message: body }],
+        messagesData: [...state.messagesData, { id: 7, message: action.body }],
         newMessageBody:"",
       };
     default:
@@ -47,29 +42,9 @@ const dialogsReducer = (state = initialState, action) => {
   }
 };
 
-export const sendMessageCreater = () => ({
+export const sendMessageAC = (body) => ({
   type: SEND_MESSAGE,
-});
-
-export const updateNewMessageBodyCreater = (body) => ({
-  type: UPDATE_NEW_MESSAGE_BODY,
-  body: body,
-});
+  body
+})
 
 export default dialogsReducer;
-
-/* switch (action.type) {
-  case SEND_MESSAGE: {
-    let stateCopy = {...state};
-    let body = stateCopy.dialogPage.newMessageBody;
-    stateCopy.dialogPage.messagesData = [...state.dialogPage.messagesData];
-    stateCopy.dialogPage.newMessageBody = "";
-    stateCopy.dialogPage.messagesData.push({ id: 6, message: body });
-    return stateCopy
-  };
-
-  case UPDATE_NEW_MESSAGE_BODY: {
-    let stateCopy = {...state};
-    stateCopy.dialogPage.newMessageBody = action.body;
-    return stateCopy
-  }; */
