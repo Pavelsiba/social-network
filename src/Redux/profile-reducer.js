@@ -20,7 +20,10 @@ const profileReducer = (state = initialState, action) => {
     case ADD_POST:
       return {
         ...state,
-        postsData: [...state.postsData, { id: 5, message: action.text, likeCount: 0 }],
+        postsData: [
+          ...state.postsData,
+          { id: 5, message: action.text, likeCount: 0 },
+        ],
       };
 
     case SET_USER_PROFILE:
@@ -50,28 +53,25 @@ export const setStatus = (status) => ({
 });
 
 export const getUserProfile = (userId) => {
-  return (dispatch) => {
-    usersAPI.userProfile(userId).then((response) => {
-      dispatch(setUserProfile(response.data));
-    });
+  return async (dispatch) => {
+    let response = await usersAPI.userProfile(userId);
+    dispatch(setUserProfile(response.data));
   };
 };
 
 export const getStatus = (userId) => {
-  return (dispatch) => {
-    profileAPI.getStatus(userId).then((response) => {
-      dispatch(setStatus(response.data));
-    });
+  return async (dispatch) => {
+    let response = await profileAPI.getStatus(userId);
+    dispatch(setStatus(response.data));
   };
 };
 
 export const updateStatus = (status) => {
-  return (dispatch) => {
-    profileAPI.updateStatus(status).then((response) => {
-      if (response.data.resultCode === 0) {
-        dispatch(setStatus(status));
-      }
-    });
+  return async (dispatch) => {
+    let response = await profileAPI.updateStatus(status);
+    if (response.data.resultCode === 0) {
+      dispatch(setStatus(status));
+    }
   };
 };
 

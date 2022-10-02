@@ -1,0 +1,120 @@
+.wrapper {
+  border-radius: 8px;
+  width: 950px;
+  border: 2px solid rgba(212, 218, 248, 1)
+}
+
+.wrapper header {
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  width: 950px;
+  height: 145px;
+  background-color: rgba(85, 110, 230, 0.25);
+}
+
+header h1 {
+  margin: 0 auto;
+  padding-top: 63px;
+  padding-left: 53px;
+  color: rgba(85, 110, 230, 1);
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.inputBox {
+  height: 40px;
+  width: 250px;
+  border-radius: 4px;
+  border: 1px solid rgba(206, 212, 218, 0.25);
+}
+
+.appWrapper {
+  padding-left: 46px;
+  padding-right: 38px;
+  margin: 0 auto;
+  padding-top: 37px;
+  display: grid;
+  background: rgba(255, 255, 255, 1);
+  grid-template-columns: repeat(4, 3fr);
+  /*  grid-template-areas:
+    "a b"
+    "d e";
+
+  grid-template-rows: 2fr 10fr;
+  grid-template-columns: 6fr 6fr; */
+}
+
+.gridItem {
+  align-items: center;
+  padding-top: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  background-color: blue;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.close {
+  display: inline-block;
+  position: relative;
+  top: -15px;
+  left: 936px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: 2px solid rgba(212, 218, 248, 1);
+  border-radius: 50%;
+  background-color: white;
+  text-align: center;
+}
+
+/* .uid {
+  grid-area: a;
+  margin-bottom: 38px;
+  padding-left: 46px;
+}
+
+.data {
+  grid-area: b;
+  padding-right: 38px;
+  padding-left: 63px;
+}
+
+.istec {
+  grid-area: d;
+  margin-bottom: 38px;
+  padding-left: 46px;
+}
+
+.answers {
+  grid-area: e;
+  padding-right: 38px;
+  padding-left: 63px;
+}
+
+.delo {
+  align-items: center;
+  padding-top: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.delo input {
+  margin-top: 12px;
+  width: 150px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.check {
+  margin-left: 225px;} */
