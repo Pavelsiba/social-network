@@ -9,14 +9,14 @@ import { Navigate } from "react-router-dom";
     return "По-любому Обязательное поле"
 } return undefined} */
 
-const Login = (props) => {
+const Login = ({login, isAuth, captchaUrl, loginError}) => {
 
   const handleSubmit = (values => {
-      props.login(values.email, values.password, values.rememberMe);
+      login(values.email, values.password, values.rememberMe, values.captcha);
     }
   );
 
-  if(props.isAuth) {
+  if(isAuth) {
     return <Navigate to={'/profile'} />
   }
 
@@ -24,26 +24,25 @@ const Login = (props) => {
     <div>
       <h1>Login</h1>
       <Form onSubmit={handleSubmit}>
-        <Field.Email
-          name="email"
-          placeholder="E-mail"
-          validate={[isEmail(), isRequired()]}
-          autoComplete="current-email"
-        />
-        <Field.Pass
-          name="password"
-          autoComplete="current-password"
-          placeholder="password"
-        />
+        <Field.Email name="email" placeholder="E-mail" validate={[isEmail(), isRequired()]} autoComplete="current-email"/>
+        <Field.Pass name="password" autoComplete="current-password" placeholder="password" />
         <Field.CheckBox name="rememberMe" label="remember Me"/>
-        <button type="submit">Войти</button>
+        {captchaUrl && <div>
+                          <img src={captchaUrl} alt="капча" />
+                          <Field.Text name="captcha" placeholder="Symbols from image" validate={isRequired()}/>
+                          <div>{loginError}</div>
+                       </div>
+        }
+        <button type="submit">Войти</button> 
       </Form>
     </div>
   );
 };
 
 const mapStateToProps =(state) => ({ 
-  isAuth: state.authReducer.isAuth
+  captchaUrl: state.authReducer.captchaUrl,
+  isAuth: state.authReducer.isAuth,
+  loginError: state.authReducer.error
 })
 
 export default connect(mapStateToProps, { login })(Login);

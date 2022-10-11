@@ -5,7 +5,7 @@ const DELETE_POST="DELETE_POST";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_STATUS = "SET_STATUS";
 const SAVE_PHOTO_SUCCESS = "SAVE_PHOTO_SUCCESS"; 
-const STOP_SUBMIT = 'STOP_SUBMIT'
+const STOP_SUBMIT = 'network/profileReducer/STOP_SUBMIT'
 
 let initialState = {
   postsData: [
