@@ -6,7 +6,21 @@
         "Creater",
         "dialogi",
         "fullname",
+        "predeploy",
         "UNFOLLOW",
         "Utilits"
-    ]
+    ],
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.smoothScrolling": true,
+    "workbench.list.smoothScrolling": true,
+    "editor.fontSize": 15,
+    "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": false,
+    "editor.tabSize": 2,
+    "files.defaultLanguage": "javascript",
+    "editor.detectIndentation": false,
+    "editor.renderWhitespace": "all",
+    "editor.lineHeight": 22,
+    "explorer.confirmDelete": false,
+    "editor.linkedEditing": true
 }

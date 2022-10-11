@@ -1,0 +1,26 @@
+.descriptionBlock {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.mainPhoto {
+  max-width: 200px;
+}
+
+.contact {
+  padding-left: 10px;
+}
+
+.profileForm {
+  display: inline;
+}
+
+.edit {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.errorServer {
+  padding-left: 10px;
+  color: rgb(187, 22, 22);
+}

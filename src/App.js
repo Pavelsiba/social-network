@@ -2,13 +2,11 @@
 import "./App.css";
 import HeaderContainer from "./Components/Header/HeaderContainer";
 import Nav from "./Components/Nav/nav";
-//import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import News from "./Components/News/News";
 import Settings from "./Components/Settings/Settings";
 import Music from "./Components/Music/Music";
 import UsersContainer from "./Components/Users/UsersContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-/* import ProfileContainer from "./Components/Profile/ProfileContainer"; */
 import Login from "./Components/Login/login";
 import ModalWindow from './Components/Common/ModalWindow/delo'
 import React, { Component, Suspense } from "react";
@@ -30,7 +28,7 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <div className="app-wrapper">
           <HeaderContainer />
           <Nav />

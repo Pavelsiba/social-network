@@ -1,8 +1,4 @@
-.formsControl.error input,
-.formsControl.error textarea {
-  border: 2 px solid red;
-}
-
-.formsControl.error span {
-  color: red;
+.error {
+  padding-left: 10px;
+  color: rgb(187, 22, 22);
 }

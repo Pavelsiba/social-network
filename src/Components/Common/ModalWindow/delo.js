@@ -30,7 +30,6 @@ const ModalWindow = () => {
         </div>
         <div>3</div>
         <div>
-          <Form></Form>
         </div>
       </div>
     </div>
