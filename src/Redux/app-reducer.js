@@ -1,6 +1,6 @@
 import { authAPI } from "../api/api";
 
-const INITIALIZED_SUCCESS = "INITIALIZED_SUCCESS";
+const INITIALIZED_SUCCESS = "network/appReducer/INITIALIZED_SUCCESS";
 
 const initialState = {
   initialized: false}

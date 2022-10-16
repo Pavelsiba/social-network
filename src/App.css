@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 .app-wrapper {
   margin: 0 auto;
   display: grid;
@@ -15,5 +17,7 @@
 .app-wrapper-content {
     grid-area: c;
     background: gainsboro;
+    height: 100%;
+    /* background-image: url('background.jpg'); */
 }
 

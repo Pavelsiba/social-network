@@ -1,10 +1,10 @@
 import { usersAPI, profileAPI } from "./../api/api";
 
-const ADD_POST = "ADD-POST";
-const DELETE_POST="DELETE_POST";
-const SET_USER_PROFILE = "SET_USER_PROFILE";
-const SET_STATUS = "SET_STATUS";
-const SAVE_PHOTO_SUCCESS = "SAVE_PHOTO_SUCCESS"; 
+const ADD_POST = "network/profileReducer/ADD-POST";
+const DELETE_POST="network/profileReducer/DELETE_POST";
+const SET_USER_PROFILE = "network/profileReducer/SET_USER_PROFILE";
+const SET_STATUS = "network/profileReducer/SET_STATUS";
+const SAVE_PHOTO_SUCCESS = "network/profileReducer/SAVE_PHOTO_SUCCESS"; 
 const STOP_SUBMIT = 'network/profileReducer/STOP_SUBMIT'
 
 let initialState = {
@@ -96,9 +96,12 @@ export const getStatus = (userId) => {
 
 export const updateStatus = (status) => {
   return async (dispatch) => {
-    let response = await profileAPI.updateStatus(status);
-    if (response.data.resultCode === 0) {
+    try {
+      let response = await profileAPI.updateStatus(status);
+      if (response.data.resultCode === 0) {
       dispatch(setStatus(status));
+    }} catch (error) {
+      console.error(error)
     }
   };
 };

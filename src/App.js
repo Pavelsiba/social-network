@@ -6,7 +6,7 @@ import News from "./Components/News/News";
 import Settings from "./Components/Settings/Settings";
 import Music from "./Components/Music/Music";
 import UsersContainer from "./Components/Users/UsersContainer";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./Components/Login/login";
 import ModalWindow from './Components/Common/ModalWindow/delo'
 import React, { Component, Suspense } from "react";
@@ -35,6 +35,7 @@ class App extends Component {
           <div className="app-wrapper-content">
             <Suspense fallback={ <div> <Preloader /></div> }>
               <Routes>
+                <Route path="/" element={<Navigate to="/profile" />} />
                 <Route path="/Dialogs" element={<DialogsContainer />} />
                 <Route path="/Profile/:userId" element={<ProfileContainer />} />
                 <Route path="/Profile/" element={<ProfileContainer />} />

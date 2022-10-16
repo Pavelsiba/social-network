@@ -1,4 +1,7 @@
 .error {
   padding-left: 10px;
-  color: rgb(187, 22, 22);
+  color: rgb(255, 255, 255);
+  text-transform: none;
+  letter-spacing: 0rem;
+  align-items: center;
 }

@@ -2,20 +2,32 @@ import React from "react";
 import { createField, FieldType } from "@altiore/form";
 import styles from "./Fields.module.css";
 
-const Field = ({fieldProps,inputProps,label,autoComplete,placeholder,className,}) => {
-  
-  return <div className={className}>
+const Field = ({
+  fieldProps,
+  inputProps,
+  label,
+  autoComplete,
+  placeholder,
+  Element,
+}) => {
+  return (
+    <div>
+      <div>
         <label>{label}</label>
-        <input {...inputProps} autoComplete={autoComplete} placeholder={placeholder} />
-        <span className={styles.error}>{fieldProps.error}</span>
-      </div>};
+        {Element ? (<Element {...inputProps} autoComplete={autoComplete} placeholder={placeholder} />) 
+                 : (<input {...inputProps} autoComplete={autoComplete} placeholder={placeholder} /> )}
+      </div>
+      <span className={styles.error}>{fieldProps.error}</span>
+    </div>
+  );
+};
 
 const FieldTA = ({ fieldProps, inputProps, label }) => {
   return (
     <div>
       <label>{label}</label>
       <textarea {...inputProps} />
-      <span className={styles.error}>{fieldProps.error}</span>
+      <span>{fieldProps.error}</span>
     </div>
   );
 };
@@ -24,8 +36,8 @@ const CheckBox = ({ inputProps, label, text, className }) => {
   return (
     <div>
       <label>{label}</label>
-      <input {...inputProps} className={styles.in} />
-      <span className={className}>{text}</span>
+      <input {...inputProps} />
+      <span>{text}</span>
     </div>
   );
 };
@@ -42,3 +54,9 @@ const Fields = {
 };
 
 export default Fields;
+
+/* const Input = (props)=> { 
+  const {fieldProps, inputProps, label, autoComplete, placeholder, ...restProps} = props;
+  return <Field {...props}>
+            <StyledInput {...inputProps} autoComplete={autoComplete} placeholder={placeholder} {...restProps}/>
+        </Field>}  */
