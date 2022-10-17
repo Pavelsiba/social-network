@@ -7,7 +7,6 @@ import Settings from "./Components/Settings/Settings";
 import Music from "./Components/Music/Music";
 import UsersContainer from "./Components/Users/UsersContainer";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Login from "./Components/Login/login";
 import ModalWindow from './Components/Common/ModalWindow/delo'
 import React, { Component, Suspense } from "react";
 import { getAuthUserData } from "./Redux/auth-reducer";
@@ -17,8 +16,11 @@ import Preloader from "./Components/Common/Preloader/Preloader";
 const DialogsContainer = React.lazy(() =>
   import("./Components/Dialogs/DialogsContainer")
 );
-const ProfileContainer = React.lazy(() =>
-  import("./Components/Profile/ProfileContainer")
+const ProfileContainerHooks = React.lazy(() =>
+  import("./Components/Profile/ProfileContainerHooks")
+);
+const Login = React.lazy(() =>
+  import("./Components/Login/login")
 );
 
 class App extends Component {
@@ -37,8 +39,8 @@ class App extends Component {
               <Routes>
                 <Route path="/" element={<Navigate to="/profile" />} />
                 <Route path="/Dialogs" element={<DialogsContainer />} />
-                <Route path="/Profile/:userId" element={<ProfileContainer />} />
-                <Route path="/Profile/" element={<ProfileContainer />} />
+                <Route path="/Profile/:userId" element={<ProfileContainerHooks />} />
+                <Route path="/Profile/" element={<ProfileContainerHooks />} />
                 <Route path="/Users" element={<UsersContainer />} />
                 <Route path="/Music" element={<Music />} />
                 <Route path="/News" element={<News />} />

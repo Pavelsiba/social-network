@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Paginator.module.css";
 import cn from 'classnames';
+import styled from "styled-components";
 
 
 let Paginator = ({
@@ -26,7 +27,7 @@ let Paginator = ({
 
   return <div className={styles.paginator}>
   {portionNumber>1 &&
-  <button onClick={()=>{setPortionNumber(portionNumber-1)}}>PREV</button>}
+  <PaginatorButton onClick={()=>{setPortionNumber(portionNumber-1)}}>PREV</PaginatorButton>}
       {pages.filter((p) =>p>= leftPortionNumber && p<=rightPortionNumber)
             .map ((p)=> {
         return <span
@@ -38,8 +39,18 @@ let Paginator = ({
             }}> {p} </span>  
       })}
       {portionCount > portionNumber && 
-        <button onClick={()=>{setPortionNumber(portionNumber+1)}}>NEXT</button>}
+        <PaginatorButton onClick={()=>{setPortionNumber(portionNumber+1)}}>NEXT</PaginatorButton>}
     </div>
 };
 
+export const PaginatorButton = styled.button`
+    background-color: aliceblue;
+    font-size: large;
+    border-radius: 5px;
+    border: 2px solid rgb(214, 117, 43);
+    cursor: pointer;
+`;
+
 export default Paginator;
+
+

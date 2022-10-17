@@ -23,7 +23,7 @@ import MyPosts from "./MyPosts";
 let mapStateToProps = (state) => {
   
   return {
-    posts:state.profileReducer.postsData,
+    posts: state.profileReducer.postsData,
   }
 } 
 /* let addPost = (text) => {dispatch(addPostActionCreater(text))}  */

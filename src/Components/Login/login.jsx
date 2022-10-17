@@ -27,38 +27,26 @@ const Login = ({ login, isAuth, captchaUrl, loginError }) => {
     <Wrapper>
       <MainContainer>
         <WelcomeText>Login</WelcomeText>
-        <Form onSubmit={handleSubmit} className={style.forma}>
-          <Field.Email
-            name="email"
-            placeholder="E-mail"
-            Element={StyledInput}
-            validate={[isEmail(), isRequired()]}
-            autoComplete="current-email"
-          />
-          <Field.Pass
-            name="password"
-            autoComplete="current-password"
-            placeholder="password"
-            Element={StyledInput}
-            validate={[isRequired()]}
-          />
-          <Field.CheckBox name="rememberMe" label="remember Me" />
-          {captchaUrl && (
+
+          <Form onSubmit={handleSubmit} className={style.forma}>
+            <Field.Email name="email" placeholder="E-mail" Element={StyledInput} 
+                      validate={[isEmail(), isRequired()]} autoComplete="current-email" />
+            <Field.Pass name="password"  autoComplete="current-password" placeholder="password"
+                      Element={StyledInput} validate={[isRequired()]} />
+            <Field.CheckBox name="rememberMe" label="remember Me" />
+            {captchaUrl && (
             <div>
               <img src={captchaUrl} alt="капча" />
-              <Field.Text
-                name="captcha"
-                placeholder="Symbols from image"
-                validate={isRequired()}
-              />
+              <Field.Text name="captcha" placeholder="Symbols from image" Element={StyledInput}
+                          validate={isRequired()} />
               <div>{loginError}</div>
-            </div>
-          )}
-          <ButtonContainer>
-            <Button type="submit" content="Sign Up" />
-          </ButtonContainer>
+            </div> )}
+            <ButtonContainer>
+              <Button type="submit" content="Sign Up" />
+            </ButtonContainer>
           <LoginWith>OR LOGIN WITH</LoginWith>
         </Form>
+
         <HorizontalRule />
         <IconsContainer>
           <Icon color={FacebookBackground}>
@@ -197,7 +185,6 @@ const StyledInput = styled.input`
   border: none;
   outline: none;
   color: #fff;
-  ${"" /* color: #3c354e; */}
   font-size: 1rem;
   font-weight: bold;
   &:focus {

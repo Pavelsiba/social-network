@@ -5,14 +5,14 @@ import s from "./ProfileInfo.module.css";
 import userPhoto from "../../Users/user.png";
 import { Form } from "@altiore/form";
 import Field from "../../Common/Fields/Fields";
+import styled from "styled-components";
+import { PaginatorButton } from "../../Common/Paginator/Paginator";
 
 const tooShort = (values) => {
   if (values && values.length < 5) {
     return 'Too short';
   }
 };
-
-
 
 const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, saveProfile, error}) => {
 
@@ -47,7 +47,7 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
 
     const ProfileData = ({ profile, isOwner, goToEditMode }) => {
       return (
-        <div> {isOwner && <button onClick={goToEditMode}>Edit</button>}
+        <div> {isOwner && <PaginatorButton onClick={goToEditMode}>Edit</PaginatorButton>}
           <div> <b>Мое имя</b>: {profile.fullName}</div>
           <div> <b>About me</b>: {profile.aboutMe}</div>
           <div> <b>Мой стек</b>: {profile.lookingForAJobDescription}</div>
@@ -79,7 +79,7 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
     const ProfileDataForm = ({profile, handleSubmit,error}) => {
       return (<div>
         <Form onSubmit={handleSubmit} defaultValues={profile}>
-          <button type="submit">Save</button>
+          <PaginatorButton type="submit">Save</PaginatorButton>
             <div> <Field.Text name="fullName" placeholder="Мое имя" className={s.profileForm} /></div>
             <div> <Field.Text name="aboutMe" placeholder="Обо мне" className={s.profileForm} /></div>
             <div> <Field.Text name="lookingForAJobDescription" placeholder="Мой стек" className={s.profileForm} /></div>
@@ -97,12 +97,12 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
 
     return (
       <div className={s.descriptionBlock}>
-        <div>
+        <div className={s.photoBlock}>
           <img
             src={profile.photos.large || userPhoto}
             alt="аватарка"
             className={s.mainPhoto} />
-          {isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
+          {isOwner && <InputFile type={"file"} onChange={onMainPhotoSelected} />}
         </div>
         <div>
         <ProfileStatusHooks status={status} updateStatus={updateStatus} />   
@@ -121,6 +121,28 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
   };
 
 export default ProfileInfo;
+
+const InputFile = styled.input`
+    font-size: 18px;
+    font-weight: 400;
+    color: red;
+    line-height: 1.2;
+    margin-left: 20px;
+    &::-webkit-file-upload-button {
+      font-size: 18px;
+      cursor: pointer;
+      color: white;
+      background-color: gray;
+      height: 40px;
+      width: 150px;
+      border-radius: 6px;
+      transition: all 0.7s ease;
+      &:hover {
+        background-color: white;
+        color: black;
+      }
+    }
+`
 /* <img
         src="https://avatars.mds.yandex.net/i?id=9d9acd11a01abca6e2e649593676200d-4480798-images-thumbs&n=13"
         alt="аватарка"

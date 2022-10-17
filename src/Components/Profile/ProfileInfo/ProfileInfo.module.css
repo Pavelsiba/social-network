@@ -6,7 +6,10 @@
 .mainPhoto {
   max-width: 200px;
 }
-
+.photoBlock {
+  justify-content: flex-end;
+  display: inline-flex;
+}
 .contact {
   padding-left: 10px;
 }
