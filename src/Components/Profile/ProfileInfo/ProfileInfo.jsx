@@ -105,7 +105,7 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
           {isOwner && <InputFile type={"file"} onChange={onMainPhotoSelected} />}
         </div>
         <div>
-        <ProfileStatusHooks status={status} updateStatus={updateStatus} />   
+        <ProfileStatusHooks status={status} updateStatus={updateStatus} isOwner={isOwner} />   
         </div> 
         <div className={s.edit}>
           <div>

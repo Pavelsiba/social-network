@@ -52,15 +52,15 @@ export default User;
  */
 
 const StyledFollowButton = styled.button`
+  
   margin-left: 10px;
 	box-sizing: border-box;
   width: 130px;
-  height: 34px;
+
   color: #fff;
   font-family: 'Genericons';
   font-size: 20px;
   font-weight: 400;
-  line-height: 1.5;
   text-align: center;
   border-radius: 6px;
   background-color: #00a9f1;

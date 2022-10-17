@@ -5,7 +5,7 @@ import Nav from "./Components/Nav/nav";
 import News from "./Components/News/News";
 import Settings from "./Components/Settings/Settings";
 import Music from "./Components/Music/Music";
-import UsersContainer from "./Components/Users/UsersContainer";
+//import UsersContainer from "./Components/Users/UsersContainer";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ModalWindow from './Components/Common/ModalWindow/delo'
 import React, { Component, Suspense } from "react";
@@ -21,6 +21,9 @@ const ProfileContainerHooks = React.lazy(() =>
 );
 const Login = React.lazy(() =>
   import("./Components/Login/login")
+);
+const UsersContainer = React.lazy(() =>
+  import("./Components/Users/UsersContainerHooks")
 );
 
 class App extends Component {

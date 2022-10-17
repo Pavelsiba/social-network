@@ -12,8 +12,6 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
 
-
-
 const ProfileContainer = (props) => {
 
   const {getUserProfile, getStatus, ...restProps} = props 

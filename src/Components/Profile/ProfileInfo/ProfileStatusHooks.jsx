@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 
 
 const ProfileStatusHooks = (props) => {
+  debugger;
 
   let [editMode, setEditMode ] = useState(false);
   let [status, setStatus ] = useState(props.status);
@@ -28,7 +29,8 @@ const ProfileStatusHooks = (props) => {
       <div>
         {!editMode &&
           <div>
-            <span onDoubleClick={activateEditMode}> {props.status || 'No status'}</span>
+            {props.isOwner ? <span onDoubleClick={activateEditMode}> {props.status || 'No status'}</span>
+                           : <span> {props.status || 'No status'}</span>}
           </div>
         }
         {editMode && (
