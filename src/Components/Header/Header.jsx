@@ -1,18 +1,15 @@
 import { NavLink } from 'react-router-dom';
 import s from './Header.module.css'
+import Ava from "../../images/avatar.png"
+import logo from "../../images/logoss.png"
 
-const Header = (props) => (<header className={s.header}>
-        <img
-          src="https://1000logos.net/wp-content/uploads/2017/08/Color-Skyrim-Logo-768x567.jpg"
-          alt="Логотип реакта"
-        />
-
-      <div className={s.loginBlock}> 
-      {props.isAuth
-        ? <div> {props.login} - <button onClick={props.logout}>Log out</button></div>
-        : <NavLink to={'/login'}>Login</NavLink>}
-      </div>
-
-      </header>);
+const Header = ({isAuth, logout, login}) => (
+  <div className={s.header}>
+    <img src={logo} alt="Логотип" />
+    <div className={s.loginBlock}> 
+          {isAuth ? <div className={s.login}><img src={Ava} alt={login} />    <button onClick={logout}>Log out</button></div>
+                  : <NavLink to={'/login'}>Login</NavLink>}
+    </div>
+  </div>);
 
 export default Header;

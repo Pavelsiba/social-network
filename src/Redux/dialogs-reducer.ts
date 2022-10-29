@@ -1,5 +1,17 @@
+const SEND_MESSAGE = "network/dialogsReducer/SEND_MESSAGE"
 
-const SEND_MESSAGE = "network/dialogsReducer/SEND_MESSAGE";
+export type dialogsType = {
+  id: number
+  name: string
+}
+export type messagesType = {
+  id: number
+  message: string
+}
+export type answersType = {
+  id: number
+  answer: string
+}
 
 const initialState = {
   dialogsData: [
@@ -9,7 +21,7 @@ const initialState = {
     { id: 4, name: "Павел" },
     { id: 5, name: "Катя" },
     { id: 6, name: "Боря" },
-  ],
+  ] as Array <dialogsType>,
   messagesData: [
     { id: 1, message: "Привет" },
     { id: 2, message: "Как дела?" },
@@ -17,7 +29,7 @@ const initialState = {
     { id: 4, message: "Чем занимаешься," },
     { id: 5, message: "Изучаю реакт" },
     { id: 6, message: "Красаучик" },
-  ],
+  ] as Array <messagesType>,
   answersData: [
     { id: 1, answer: "Привет" },
     { id: 2, answer: "Как дела?" },
@@ -25,24 +37,35 @@ const initialState = {
     { id: 4, answer: "Чем занимаешься," },
     { id: 5, answer: "Изучаю реакт" },
     { id: 6, answer: "Красаучик" },
-  ],
-};
+  ] as Array <answersType>,
+  newmessage:""
+} 
 
-const dialogsReducer = (state = initialState, action) => {
+export type InitialStateType = typeof initialState
+
+export type ActionsType = sendMessageACType
+
+const dialogsReducer = (state = initialState, action:ActionsType):InitialStateType  => {
   switch (action.type) {
  
     case SEND_MESSAGE:
       return {
         ...state,
         messagesData: [...state.messagesData, { id: 7, message: action.body }],
-        newMessageBody:"",
-      };
+        newmessage:""
+      }
+
     default:
-      return state;
+      return state
   }
 };
 
-export const sendMessageAC = (body) => ({
+export type  sendMessageACType = {
+  type: typeof SEND_MESSAGE,
+  body: string
+}
+
+export const sendMessageAC = (body: string):sendMessageACType => ({
   type: SEND_MESSAGE,
   body
 })

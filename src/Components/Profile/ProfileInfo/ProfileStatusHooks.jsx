@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react";
 
 
 const ProfileStatusHooks = (props) => {
-  debugger;
 
   let [editMode, setEditMode ] = useState(false);
   let [status, setStatus ] = useState(props.status);
@@ -24,7 +23,6 @@ const ProfileStatusHooks = (props) => {
       setStatus(e.currentTarget.value)
     }
   
-
   return (
       <div>
         {!editMode &&

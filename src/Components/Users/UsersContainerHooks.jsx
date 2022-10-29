@@ -7,7 +7,7 @@ import {
   unfollow,
   setCurrentPage,
   requestUsers,
-} from "../../Redux/users-reducer";
+} from "../../Redux/users-reducer.ts";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import {getUsers, getPageSize, getTotalUsersCount, getPage, getIsFetching, getFollowingInProgress} from '../../Redux/users-selectors'

@@ -1,5 +1,5 @@
 
-import { addPostAC } from "../../../Redux/profile-reducer";
+import { addPostAC } from "../../../Redux/profile-reducer.ts";
 import {connect} from "react-redux"
 import MyPosts from "./MyPosts";
 

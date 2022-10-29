@@ -6,7 +6,7 @@ import {
   updateStatus,
   savePhoto,
   saveProfile
-} from "../../Redux/profile-reducer";
+} from "../../Redux/profile-reducer.ts";
 import { connect } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
@@ -40,7 +40,6 @@ const ProfileContainer = (props) => {
       />
     );
   }
-
 
 let mapStateToProps = (state) => ({
   profile: state.profileReducer.profile,

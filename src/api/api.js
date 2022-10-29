@@ -7,9 +7,9 @@ const instance = axios.create({
 });
 
 export const usersAPI = {
-        async  getUsers (currentPage = 1, pageSize = 10) {
-        return instance.get(`users?page=${currentPage}&count=${pageSize}`)
-                        .then(response => response.data);
+  async  getUsers (currentPage = 1, pageSize = 10) {
+  return instance.get(`users?page=${currentPage}&count=${pageSize}`)
+                .then(response => response.data);
   },
 
   unfollow(userId) {
@@ -61,13 +61,13 @@ export const authAPI = {
     return instance.get(`auth/me`);
   },
 
-  login(email, password, rememberMe = false, captcha=null) {
-    return instance.post(`auth/login`, { email, password, rememberMe, captcha });
-  },
+  login (email, password, rememberMe=false, captcha) {
+    return instance.post(`auth/login`, {email, password, rememberMe, captcha})
+  }, 
 
-  logout() {
-    return instance.delete(`auth/login`);
-  },
+  logout () {
+    return instance.delete(`auth/login`)
+  }
 };
 
 export const securityAPI = {
@@ -76,3 +76,14 @@ export const securityAPI = {
     //.then(response=>response.data.url)
   }
 }
+
+
+
+
+/* login(email, password, rememberMe = false, captcha=null) {
+  return instance.post(`auth/login`, { email, password, rememberMe, captcha });
+},
+
+logout() {
+  return instance.delete(`auth/login`);
+}, */
