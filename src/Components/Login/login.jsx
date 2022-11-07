@@ -1,6 +1,6 @@
 import { Form, isEmail, isRequired } from "@altiore/form";
 import Field from "../Common/Fields/Fields";
-import { login } from "../../Redux/auth-reducer";
+import { login } from "../../Redux/auth-reducer.ts";
 import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
 import styled from "styled-components";

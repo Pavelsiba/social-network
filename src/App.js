@@ -23,7 +23,7 @@ const Login = React.lazy(() =>
   import("./Components/Login/login")
 );
 const UsersContainer = React.lazy(() =>
-  import("./Components/Users/UsersContainerHooks")
+  import("./Components/Users/UsersContainerHooks.tsx")
 );
 
 class App extends Component {

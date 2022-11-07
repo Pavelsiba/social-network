@@ -1,6 +1,17 @@
 import React from "react";
-import { createField, FieldType } from "@altiore/form";
+import {FieldProps, createField, FieldType } from "@altiore/form";
 import styles from "./Fields.module.css";
+import { StyledComponent } from "styled-components";
+
+
+interface IField {
+  label?: string;
+  autoComplete?: string,
+  placeholder?: string,
+  className?: string
+  text?:string
+  Element?: StyledComponent<"input", any,{}, never>
+}
 
 const Field = ({
   fieldProps,
@@ -9,7 +20,7 @@ const Field = ({
   autoComplete,
   placeholder,
   Element,
-}) => {
+}:FieldProps<IField>) => {
   return (
     <div>
       <div>
@@ -22,7 +33,7 @@ const Field = ({
   );
 };
 
-const FieldTA = ({ fieldProps, inputProps, label }) => {
+const FieldTA = ({ fieldProps, inputProps, label }:FieldProps<IField>) => {
   return (
     <div>
       <label>{label}</label>
@@ -32,7 +43,7 @@ const FieldTA = ({ fieldProps, inputProps, label }) => {
   );
 };
 
-const CheckBox = ({ inputProps, label, text, className }) => {
+const CheckBox = ({ inputProps, label, text, className }:FieldProps<IField>) => {
   return (
     <div>
       <label>{label}</label>
@@ -48,12 +59,15 @@ const Fields = {
   Email: createField(FieldType.EMAIL, Field),
   Pass: createField(FieldType.PASSWORD, Field),
   Phone: createField(FieldType.PHONE, Field),
-  Textarea: createField(FieldType.TEXTAREA, FieldTA),
+  Textarea: createField(FieldType.TEXT, FieldTA),
   CheckBox: createField(FieldType.BOOLEAN, CheckBox),
-  Data: createField(FieldType.DATA, Field),
 };
 
 export default Fields;
+
+
+//Textarea: createField(FieldType.TEXTAREA, FieldTA),
+//Data: createField(FieldType.DATA, Field),
 
 /* const Input = (props)=> { 
   const {fieldProps, inputProps, label, autoComplete, placeholder, ...restProps} = props;

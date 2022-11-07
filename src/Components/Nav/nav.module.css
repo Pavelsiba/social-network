@@ -5,13 +5,14 @@
   border-radius: 10px;
 }
 
-a {
+.link {
   color: white;
   text-decoration: none;
 }
 
-a.active {
+.active {
   color: gold;
+  text-decoration: none;
 }
 
 .friends h2 {

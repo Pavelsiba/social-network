@@ -1,6 +1,6 @@
 import {usersAPI} from "../api/api";
 import {updateObjectInArray} from '../Components/Utilits/object-helpers'
-import {UsersType} from "../Types/types"
+import {UserType} from "../Types/types"
 
 const FOLLOW = "network/usersReducer/FOLLOW";
 const UNFOLLOW = "network/usersReducer/UNFOLLOW";
@@ -11,10 +11,10 @@ const TOGGLE_IS_FETCHING = "network/usersReducer/TOGGLE_IS_FETCHING";
 const TOGGLE_IS_FOLLOWING_PROGRESS = "network/usersReducer/TOGGLE_IS_FOLLOWING_PROGRESS";
 
 const initialState = {
-  users: [] as Array <UsersType>,
+  users: [] as Array <UserType>,
   pageSize: 5,
   totalUsersCount: 0,
-  page: 1,
+  currentPage: 1,
   isFetching: false as boolean,
   followingInProgress: [] as Array<number>, // Array of users ID
 };
@@ -52,7 +52,7 @@ const usersReducer = (state = initialState, action:any):InitialStateType => {
     }
 
     case SET_CURRENT_PAGE: {
-      return { ...state, page: action.page };
+      return { ...state, currentPage: action.currentPage };
     }
 
     case TOTAL_USERS_COUNT: {
@@ -97,20 +97,20 @@ export const unfollowAccept = (userId:number):UnFollowAcceptActionType => ({
 
 type SetUsersActionType = {
   type: typeof SET_USERS,
-  users: UsersType
+  users: UserType
 }
-export const setUsers = (users:UsersType):SetUsersActionType => ({
+export const setUsers = (users:UserType):SetUsersActionType => ({
   type: SET_USERS,
   users
 });
 
 type SetCurrentPageActionType = {
   type: typeof SET_CURRENT_PAGE,
-  page: number
+  CurrentPage: number
 }
-export const setCurrentPage = (page:number):SetCurrentPageActionType => ({
+export const setCurrentPage = (CurrentPage:number):SetCurrentPageActionType => ({
   type: SET_CURRENT_PAGE,
-  page,
+  CurrentPage,
 });
 
 type SetTotalUsersCountActionType ={
@@ -142,11 +142,11 @@ export const toggleFollowingProgress = (isFetching:boolean, userId:number):Toggl
   userId,
 });
 
-export const requestUsers = (page:number, pageSize:number) => {
+export const requestUsers = (currentPage:number, pageSize:number) => {
   return async (dispatch:any) => {
     dispatch(setToggleIsFetching(true));
-    dispatch(setCurrentPage(page));
-    let data = await usersAPI.getUsers(page, pageSize);
+    dispatch(setCurrentPage(currentPage));
+    let data = await usersAPI.getUsers(currentPage, pageSize);
     dispatch(setToggleIsFetching(false));
     dispatch(setUsers(data.items));
     dispatch(setTotalUsersCount(data.totalCount));

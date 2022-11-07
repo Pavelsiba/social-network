@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "./dest",
+    "allowJs": true,
+    "jsx": "react",
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./src/",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }] 
+  },
+  "include": [
+    "./src",
+  ],
+  "exclude": [
+    "node_modules",
+  ]
+}

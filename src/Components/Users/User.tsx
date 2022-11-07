@@ -1,10 +1,19 @@
-import React from "react";
+import React, {FC} from "react";
 import styles from "./users.module.css";
 import userPhoto from "../Users/user.png";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import {UserType} from "../../Types/types"
 
-const User = ({user, followingInProgress, unfollow, follow}) => {
+type PropsType = {
+  user: UserType
+  follow:(userId:number)=>void
+  unfollow:(userId:number)=>void 
+  followingInProgress: Array<number>
+}
+
+
+const User: FC<PropsType> = ({user, followingInProgress, unfollow, follow}) => {
   return (
     <div>
       <span>
@@ -56,7 +65,6 @@ const StyledFollowButton = styled.button`
   margin-left: 10px;
 	box-sizing: border-box;
   width: 130px;
-
   color: #fff;
   font-family: 'Genericons';
   font-size: 20px;

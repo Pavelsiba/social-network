@@ -1,5 +1,5 @@
 import { usersAPI, profileAPI } from "../api/api";
-import {PostType, ProfileType} from "../types/types"
+import {PostType, ProfileType} from "../Types/types"
 const ADD_POST = "network/profileReducer/ADD-POST";
 const DELETE_POST="network/profileReducer/DELETE_POST";
 const SET_USER_PROFILE = "network/profileReducer/SET_USER_PROFILE";

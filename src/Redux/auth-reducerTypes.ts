@@ -16,7 +16,7 @@ export type GetCaptchaUrlSuccessTypePayload={
   captchaUrl: string|null
 }
 
-export type GetCaptchaUrlSuccessActionType = (captchaUrl: string|null) => {
+export type GetCaptchaUrlSuccessActionType = {
   type: typeof GET_CAPTCHA_URL_SUCCESS,
   payload: GetCaptchaUrlSuccessTypePayload
 }
